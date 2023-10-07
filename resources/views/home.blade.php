@@ -1,23 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">space</th>
+            <th scope="col">price</th>
+            <th scope="col">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($products as $product)
+            <tr>
+                <td>{{$product->id}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->space}}</td>
+                <td>{{$product->price}}</td>
+                <td>
+                    <a href="#" class="btn btn-success btn-sm">add to cart</a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                </td>
+            </tr>
+        @endforeach
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        </tbody>
+    </table>
 @endsection

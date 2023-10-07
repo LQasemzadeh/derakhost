@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -30,4 +28,4 @@ Route::prefix('admin')->group(function () {
     Route::get('/product/delete{product}', [\App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('admin.product.delete');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

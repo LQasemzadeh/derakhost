@@ -79,6 +79,8 @@ class ProductController extends Controller
     }
     public function delete(Product $product)
     {
+         $product->delete();
+        return redirect()->route('admin.product.index');
 
     }
     public function edit(Product $product)
